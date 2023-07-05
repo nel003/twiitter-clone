@@ -1,6 +1,6 @@
 import "./globals.css";
-import { ThemeProvider } from "../utils/ThemeContext";
-import { StoreProvider } from "../utils/Store";
+import { ThemeProvider } from "../utils/app/ThemeContext";
+import { StoreProvider } from "../utils/app/Store";
 import { cookies } from "next/headers";
 
 export const metadata = {
