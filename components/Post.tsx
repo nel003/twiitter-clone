@@ -1,4 +1,4 @@
-import * as Icons from "@/components/Icons";
+import * as Icons from "../components/Icons";
 import Image from "next/image";
 
 export default function Post(): JSX.Element {

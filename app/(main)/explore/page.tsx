@@ -1,7 +1,7 @@
 "use client";
 import { useContext } from "react";
-import ThemeContext from "@/utils/ThemeContext";
-import Store from "@/utils/Store";
+import ThemeContext from "../../../utils/ThemeContext";
+import Store from "../../../utils/Store";
 
 export default function Explore() {
   const { state, dispatch} = useContext(Store);

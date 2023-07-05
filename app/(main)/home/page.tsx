@@ -1,9 +1,9 @@
 "use client"
 import { useState } from "react";
-import * as Icons from "@/components/Icons";
-import TrendsItem from "@/components/TrendsItem";
-import Post from "@/components/Post";
-import WTF from "@/components/WTF";
+import * as Icons from "../../../components/Icons";
+import TrendsItem from "../../../components/TrendsItem";
+import Post from "../../../components/Post";
+import WTF from "../../../components/WTF";
 import Image from "next/image";
 
 export default function Hello() {

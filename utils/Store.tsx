@@ -1,6 +1,6 @@
 "use client";
 import React, { createContext, useReducer } from "react";
-import { ActionType, StateType, StoreType } from "@/utils/Types"
+import { ActionType, StateType, StoreType } from "./Types"
 
 const initialState: StateType = {
     user: {
