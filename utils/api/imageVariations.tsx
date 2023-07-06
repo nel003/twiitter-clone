@@ -10,7 +10,7 @@ export default async function vartions(image: any) {
         await sharp(image.filepath)
         .resize(size)
         .webp({ quality: 40, lossless: true })
-        .toFile(os.tmpdir()+filename);
+        .toFile(os.tmpdir()+"/"+filename);
 
         variants.push({size: 200, filename, ext: ".webp", mimetype: "image/webp", filepath: os.tmpdir()+filename});
     }
