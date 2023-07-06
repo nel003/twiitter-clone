@@ -15,7 +15,7 @@ router.post(async (req, res) => {
     const variants = await imageVariations(image[0]);
     const links = [];
     for(let v of variants) {
-        const url = await uploadFile(v.data, v.filename, v.mimetype);
+        const url = await uploadFile(v.filepath, v.filename, v.mimetype);
         links.push({size: v.size, url})
     }
     console.log(links)
