@@ -8,13 +8,17 @@ const initialState: StateType = {
         name: '',
         username: '',
         email: ''
-    }
+    },
+    isMHeaderOpen: false
 }
 
 function reducer(state: StateType, action: ActionType) {
     switch(action.type) {
         case 'updateName':
             state = {...state, user: {...state.user, name: action.payload}}
+            break;
+        case 'updateMHeader':
+            state = {...state, isMHeaderOpen: action.payload}
             break;
         default:
             break;

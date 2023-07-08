@@ -2,11 +2,13 @@ import "./globals.css";
 import { ThemeProvider } from "../utils/app/ThemeContext";
 import { StoreProvider } from "../utils/app/Store";
 import { cookies } from "next/headers";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 export const metadata = {
   title: {
     default: "Twitter Clone",
-    template: "%s / Twitter Clone"
+    template: "%s / Twitter Clone",
   },
   description: "This project is owned by Nel003",
   themeColor: "#ffffff"
@@ -22,9 +24,11 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <StoreProvider>
-        <ThemeProvider defaultTheme={theme}>{children}</ThemeProvider>
-      </StoreProvider>
+      <Suspense fallback={<Loading/>}>
+        <StoreProvider>
+          <ThemeProvider defaultTheme={theme}>{children}</ThemeProvider>
+        </StoreProvider>
+      </Suspense>
     </html>
   );
 }

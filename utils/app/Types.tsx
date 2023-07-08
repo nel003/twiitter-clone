@@ -14,6 +14,7 @@ export interface UserType {
 
 export interface StateType {
     user: UserType;
+    isMHeaderOpen?: boolean;
 }
 
 export interface ActionType {
