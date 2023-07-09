@@ -1,10 +1,55 @@
 import * as Icons from "../components/Icons";
 import Image from "next/image";
+import { useRef } from "react";
+import useOutsideClick from "../utils/app/useOutsideClick";
 
-export default function Post(): JSX.Element {
+export default function Post({id}: {id:string}): JSX.Element {
+  const excempElem = useRef<any>(null)
+  const [popup, setPopup] = useOutsideClick(id, excempElem);
+
   return (
     <>
-      <div className="w-full flex border-b border-black/10 dark:border-light/10">
+      <div className="w-full flex border-b border-black/10 dark:border-light/10 relative">
+        {/* Pop up */}
+        <div ref={excempElem} className={`${popup ? "scale-y-100":"scale-y-0"} z-40 w-[300px] bg-light dark:bg-black shadow-black/20 dark:shadow-light/20 shadow-[0_0_4px] absolute rounded-xl right-4 top-4 flex flex-col`}>
+          <div className={`${popup ? "scale-y-100":"scale-y-0"} delay-75 duration-100 ease-out p-3 origin-top text-black/90 dark:text-light/90 flex gap-2 hover:bg-black/5 dark:hover:bg-light/5`}>
+            <Icons.ChatRemove className="text-xl" />
+            <span className="text-sm font-semibold">Not interested in You might like</span>
+          </div>
+          <div className={`${popup ? "scale-y-100":"scale-y-0"} delay-75 duration-100 ease-out p-3 origin-top text-black/90 dark:text-light/90 flex gap-2 hover:bg-black/5 dark:hover:bg-light/5`}>
+            <Icons.EmojiSad className="text-xl" />
+            <span className="text-sm font-semibold">Not interested in this Tweet</span>
+          </div>
+          <div className={`${popup ? "scale-y-100":"scale-y-0"} delay-75 duration-100 ease-out p-3 origin-top text-black/90 dark:text-light/90 flex gap-2 hover:bg-black/5 dark:hover:bg-light/5`}>
+            <Icons.PersonAdd className="text-xl" />
+            <span className="text-sm font-semibold">Follow</span>
+          </div>
+          <div className={`${popup ? "scale-y-100":"scale-y-0"} delay-75 duration-100 ease-out p-3 origin-top text-black/90 dark:text-light/90 flex gap-2 hover:bg-black/5 dark:hover:bg-light/5`}>
+            <Icons.PersonStar className="text-xl" />
+            <span className="text-sm font-semibold">Subscribe</span>
+          </div>
+          <div className={`${popup ? "scale-y-100":"scale-y-0"} delay-75 duration-100 ease-out p-3 origin-top text-black/90 dark:text-light/90 flex gap-2 hover:bg-black/5 dark:hover:bg-light/5`}>
+            <Icons.NotesAdd className="text-xl" />
+            <span className="text-sm font-semibold">Add/remove</span>
+          </div>
+          <div className={`${popup ? "scale-y-100":"scale-y-0"} delay-75 duration-100 ease-out p-3 origin-top text-black/90 dark:text-light/90 flex gap-2 hover:bg-black/5 dark:hover:bg-light/5`}>
+            <Icons.Mute className="text-xl" />
+            <span className="text-sm font-semibold">Mute</span>
+          </div>
+          <div className={`${popup ? "scale-y-100":"scale-y-0"} delay-75 duration-100 ease-out p-3 origin-top text-black/90 dark:text-light/90 flex gap-2 hover:bg-black/5 dark:hover:bg-light/5`}>
+            <Icons.DoNot className="text-xl" />
+            <span className="text-sm font-semibold">Block</span>
+          </div>
+          <div className={`${popup ? "scale-y-100":"scale-y-0"} delay-75 duration-100 ease-out p-3 origin-top text-black/90 dark:text-light/90 flex gap-2 hover:bg-black/5 dark:hover:bg-light/5`}>
+            <Icons.Code className="text-xl" />
+            <span className="text-sm font-semibold">Embed Tweet</span>
+          </div>
+          <div className={`${popup ? "scale-y-100":"scale-y-0"} delay-75 duration-100 ease-out p-3 origin-top text-black/90 dark:text-light/90 flex gap-2 hover:bg-black/5 dark:hover:bg-light/5`}>
+            <Icons.Flag className="text-xl" />
+            <span className="text-sm font-semibold">Report Tweet</span>
+          </div>
+        </div>
+        {/* Content */}
         <div className="w-[4.5rem] p-4 flex">
           <div className="w-full">
             <Image
@@ -25,8 +70,8 @@ export default function Post(): JSX.Element {
             <p className="text-black/60 dark:text-light/60">@nel003</p>
             <span className="text-black/60 dark:text-light/60">·</span>
             <p className="text-black/60 dark:text-light/60 grow">16h</p>
-            <div className="w-8 h-8 place-items-center grid mr-2 pt-[0.10rem] group hover:bg-accent/10 rounded-full cursor-pointer">
-              <Icons.MoreFlat className="text-lg p-0 group-hover:text-accent text-black/80 dark:text-light/80 " />
+            <div onClick={() => setPopup(!popup)} id={id} className="w-8 h-8 place-items-center grid mr-2 pt-[0.10rem] group hover:bg-accent/10 rounded-full cursor-pointer">
+              <Icons.MoreFlat className="text-lg p-0 group-hover:text-accent text-black/80 dark:text-light/80 pointer-events-none" />
             </div>
           </div>
           <p className="mr-5 -mt-1 text-black/90 dark:text-light/90">

@@ -859,3 +859,172 @@ export function LogOut({ className }: { className?: string }): JSX.Element {
     </>
   );
 }
+export function EmojiSad({ className }: { className?: string }): JSX.Element {
+  return (
+    <>
+      <svg
+        className={className || ""}
+        xmlns="http://www.w3.org/2000/svg"
+        width="1em"
+        height="1em"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill="currentColor"
+          d="M14 8A6 6 0 1 0 2 8a6 6 0 0 0 12 0ZM3 8a5 5 0 1 1 10 0A5 5 0 0 1 3 8Zm4-1.25a.75.75 0 1 1-1.5 0a.75.75 0 0 1 1.5 0Zm3.5 0a.75.75 0 1 1-1.5 0a.75.75 0 0 1 1.5 0Zm-4.368 4.072c.925-1.096 2.81-1.096 3.736 0a.5.5 0 1 0 .764-.644c-1.325-1.57-3.94-1.57-5.264 0a.5.5 0 1 0 .764.644Z"
+        />
+      </svg>
+    </>
+  );
+}
+export function ChatRemove({ className }: { className?: string }): JSX.Element {
+  return (
+    <>
+      <svg
+        className={className || ""}
+        xmlns="http://www.w3.org/2000/svg"
+        width="1em"
+        height="1em"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fill="currentColor"
+          d="m15.46 15.88l1.42-1.42L19 16.59l2.12-2.12l1.42 1.41L20.41 18l2.13 2.12l-1.42 1.42L19 19.41l-2.12 2.13l-1.42-1.42L17.59 18l-2.12-2.12M12 3c5.5 0 10 3.58 10 8c0 .58-.08 1.14-.22 1.68c-.59-.3-1.23-.52-1.9-.62c.08-.34.12-.7.12-1.06c0-3.31-3.58-6-8-6s-8 2.69-8 6s3.58 6 8 6l1.09-.05L13 18l.08.95L12 19c-1.19 0-2.38-.17-3.53-.5C6.64 20 4.37 20.89 2 21c2.33-2.33 2.75-3.9 2.75-4.5A7.218 7.218 0 0 1 2 11c0-4.42 4.5-8 10-8Z"
+        />
+      </svg>
+    </>
+  );
+}
+export function PersonAdd({ className }: { className?: string }): JSX.Element {
+  return (
+    <>
+      <svg
+        className={className || ""}
+        xmlns="http://www.w3.org/2000/svg"
+        width="1em"
+        height="1em"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fill="currentColor"
+          d="M13 8c0-2.21-1.79-4-4-4S5 5.79 5 8s1.79 4 4 4s4-1.79 4-4zm-2 0c0 1.1-.9 2-2 2s-2-.9-2-2s.9-2 2-2s2 .9 2 2zM1 18v2h16v-2c0-2.66-5.33-4-8-4s-8 1.34-8 4zm2 0c.2-.71 3.3-2 6-2c2.69 0 5.78 1.28 6 2H3zm17-3v-3h3v-2h-3V7h-2v3h-3v2h3v3h2z"
+        />
+      </svg>
+    </>
+  );
+}
+export function PersonStar({ className }: { className?: string }): JSX.Element {
+  return (
+    <>
+      <svg
+        className={className || ""}
+        xmlns="http://www.w3.org/2000/svg"
+        width="1em"
+        height="1em"
+        viewBox="0 0 20 20"
+      >
+        <path
+          fill="currentColor"
+          d="M9 2a4 4 0 1 0 0 8a4 4 0 0 0 0-8ZM6 6a3 3 0 1 1 6 0a3 3 0 0 1-6 0Zm-1.991 5A2.001 2.001 0 0 0 2 13c0 1.691.833 2.966 2.135 3.797C5.417 17.614 7.145 18 9 18c.41 0 .816-.019 1.21-.057a5.501 5.501 0 0 1-.618-.958C9.398 16.995 9.2 17 9 17c-1.735 0-3.257-.364-4.327-1.047C3.623 15.283 3 14.31 3 13c0-.553.448-1 1.009-1h5.59c.184-.358.405-.693.658-1H4.01ZM19 14.5a4.5 4.5 0 1 1-9 0a4.5 4.5 0 0 1 9 0Zm-4.024-2.64a.494.494 0 0 0-.952 0l-.477 1.532H12c-.484 0-.686.647-.294.944l1.25.947l-.477 1.532c-.15.48.378.88.77.583l1.25-.947l1.25.947c.392.297.92-.103.77-.583l-.477-1.532l1.25-.947c.392-.297.19-.944-.294-.944h-1.545l-.478-1.531Z"
+        />
+      </svg>
+    </>
+  );
+}
+export function NotesAdd({ className }: { className?: string }): JSX.Element {
+  return (
+    <>
+      <svg
+        className={className || ""}
+        xmlns="http://www.w3.org/2000/svg"
+        width="1em"
+        height="1em"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fill="currentColor"
+          d="M5 21q-.825 0-1.413-.588T3 19V5q0-.825.588-1.413T5 3h14q.825 0 1.413.588T21 5v6.7q-.475-.225-.975-.388T19 11.075V5H5v14h6.05q.075.55.238 1.05t.387.95H5Zm0-3v1V5v6.075V11v7Zm2-1h4.075q.075-.525.238-1.025t.362-.975H7v2Zm0-4h6.1q.8-.75 1.788-1.25T17 11.075V11H7v2Zm0-4h10V7H7v2Zm11 14q-2.075 0-3.538-1.463T13 18q0-2.075 1.463-3.538T18 13q2.075 0 3.538 1.463T23 18q0 2.075-1.463 3.538T18 23Zm-.5-2h1v-2.5H21v-1h-2.5V15h-1v2.5H15v1h2.5V21Z"
+        />
+      </svg>
+    </>
+  );
+}
+export function Mute({ className }: { className?: string }): JSX.Element {
+  return (
+    <>
+      <svg
+        className={className || ""}
+        xmlns="http://www.w3.org/2000/svg"
+        width="1em"
+        height="1em"
+        viewBox="0 0 14 14"
+      >
+        <path
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="m.5 13.5l13-13M4.5 5H3a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h1.5ZM10 4V3a1 1 0 0 0-.55-.89a1 1 0 0 0-1 .08L4.5 5m2.17 5.56l1.74 1.25a1 1 0 0 0 1 .08A1 1 0 0 0 10 11V7M4.5 9l.29.21"
+        />
+      </svg>
+    </>
+  );
+}
+export function DoNot({ className }: { className?: string }): JSX.Element {
+  return (
+    <>
+      <svg
+        className={className || ""}
+        xmlns="http://www.w3.org/2000/svg"
+        width="1em"
+        height="1em"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fill="currentColor"
+          d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2zM4 12c0-4.4 3.6-8 8-8c1.8 0 3.5.6 4.9 1.7L5.7 16.9C4.6 15.5 4 13.8 4 12zm8 8c-1.8 0-3.5-.6-4.9-1.7L18.3 7.1C19.4 8.5 20 10.2 20 12c0 4.4-3.6 8-8 8z"
+        />
+      </svg>
+    </>
+  );
+}
+export function Code({ className }: { className?: string }): JSX.Element {
+  return (
+    <>
+      <svg
+        className={className || ""}
+        xmlns="http://www.w3.org/2000/svg"
+        width="1em"
+        height="1em"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d="m7 8l-4 4l4 4m10-8l4 4l-4 4M14 4l-4 16"
+        />
+      </svg>
+    </>
+  );
+}
+export function Flag({ className }: { className?: string }): JSX.Element {
+  return (
+    <>
+      <svg
+        className={className || ""}
+        xmlns="http://www.w3.org/2000/svg"
+        width="1em"
+        height="1em"
+        viewBox="0 0 28 28"
+      >
+        <path
+          fill="currentColor"
+          d="M5.5 16.5v-12h16.392l-3.527 5.6a.75.75 0 0 0 0 .8l3.527 5.6H5.5Zm0 1.5h17.75c.59 0 .95-.65.635-1.15l-3.999-6.35l3.999-6.35A.75.75 0 0 0 23.25 3H4.75a.75.75 0 0 0-.75.75v20.5a.75.75 0 0 0 1.5 0V18Z"
+        />
+      </svg>
+    </>
+  );
+}

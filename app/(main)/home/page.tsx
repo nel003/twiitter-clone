@@ -1,5 +1,5 @@
 "use client";
-import { ChangeEvent, useState, useEffect, useContext } from "react";
+import { ChangeEvent, useState, useEffect, useContext, useRef } from "react";
 import * as Icons from "../../../components/Icons";
 import TrendsItem from "../../../components/TrendsItem";
 import Post from "../../../components/Post";
@@ -32,6 +32,7 @@ export default function Hello() {
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
+
     }
   }, []);
 
@@ -43,7 +44,7 @@ export default function Hello() {
       setShowHead(true)
     } 
     setLastScroll(window.scrollY);
-  }, [scroll]);
+  }, [scroll, lastScroll]);
 
   function handleTweetInput(e: ChangeEvent<HTMLTextAreaElement>) {
     const target = e.target;
@@ -112,7 +113,7 @@ export default function Hello() {
                 onFocus={() => setIsHidden(false)}
                 onChange={(e) => handleTweetInput(e)}
                 value={tweet}
-                className="outline-0 py-3 h-12 w-full text-xl bg-transparent text-black/90 dark:text-light/90 resize-none"
+                className="outline-0 py-3 h-14 w-full text-xl bg-transparent text-black/90 dark:text-light/90 resize-none"
                 cols={1}
                 name="message"
                 placeholder="What is happening?"
@@ -124,19 +125,19 @@ export default function Hello() {
                 </button>
               </div>
               <div className="w-full h-12 flex items-end pb-2 gap-1">
-                <div className="w-9 h-9 -ml-2 pr-[0.10rem] grid place-items-center hover:bg-accent/10 rounded-full cursor-pointer">
+                <div title="Media" className="w-9 h-9 -ml-2 pr-[0.10rem] grid place-items-center hover:bg-accent/10 rounded-full cursor-pointer">
                   <Icons.Image className="text-lg text-accent" />
                 </div>
-                <div className="w-9 h-9 pr-[0.10rem] grid place-items-center hover:bg-accent/10 rounded-full cursor-pointer">
+                <div title="GIF" className="w-9 h-9 pr-[0.10rem] grid place-items-center hover:bg-accent/10 rounded-full cursor-pointer">
                   <Icons.Gif className="text-lg text-accent" />
                 </div>
-                <div className="w-9 h-9 pr-[0.10rem] grid place-items-center hover:bg-accent/10 rounded-full cursor-pointer">
+                <div title="Poll" className="w-9 h-9 pr-[0.10rem] grid place-items-center hover:bg-accent/10 rounded-full cursor-pointer">
                   <Icons.Lists className="text-lg text-accent" />
                 </div>
-                <div className="w-9 h-9 pr-[0.10rem] grid place-items-center hover:bg-accent/10 rounded-full cursor-pointer">
+                <div title="Schedule" className="w-9 h-9 pr-[0.10rem] grid place-items-center hover:bg-accent/10 rounded-full cursor-pointer">
                   <Icons.Schedule className="text-lg text-accent" />
                 </div>
-                <div className="w-9 h-9 pr-[0.10rem] grid place-items-center hover:bg-accent/10 rounded-full cursor-pointer">
+                <div title="Location" className="w-9 h-9 pr-[0.10rem] grid place-items-center hover:bg-accent/10 rounded-full cursor-pointer">
                   <Icons.Location className="text-lg text-accent" />
                 </div>
                 <div className="grow"></div>
@@ -154,7 +155,7 @@ export default function Hello() {
             {Array(10)
               .fill(null)
               .map((item, index) => {
-                return <Post key={index} />;
+                return <Post key={index} id={`p${index}`} />;
               })}
           </div>
         </div>
@@ -197,6 +198,7 @@ export default function Hello() {
               return (
                 <TrendsItem
                   key={index}
+                  id={`t${index}`}
                   cat={trend.cat}
                   text={trend.text}
                   tweets={trend.tweets}

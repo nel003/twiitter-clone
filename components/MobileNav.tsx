@@ -56,7 +56,7 @@ export default function MobileNav() {
     return () => {
       window.removeEventListener("click", handleClick);
     };
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
@@ -140,11 +140,11 @@ export default function MobileNav() {
             </div>
             <div className="flex flex-col">
               {/* wwsd */}
-              <div className="py-3 hover:bg-accent/5 px-5 flex">
+              <div onClick={() => setCollapse({...collapse, cs: !collapse.cs})} className="py-3 hover:bg-accent/5 px-5 flex">
                 <span className="text-[1.0rem] font-semibold flex-grow text-black/90 dark:text-light/90">
                   Creator Studio
                 </span>
-                <span onClick={() => setCollapse({...collapse, cs: !collapse.cs})}>
+                <span>
                   <ArrowDown className={`text-[1.6rem] text-black/90 dark:text-light/90 duration-200 ${collapse.cs ? "rotate-0" : "-rotate-180"}`} />
                 </span>
               </div>
@@ -156,11 +156,11 @@ export default function MobileNav() {
                 </div>
               </div>
               {/* wwsd */}
-              <div className="py-3 hover:bg-accent/5 px-5 flex">
+              <div onClick={() => setCollapse({...collapse, pt: !collapse.pt})} className="py-3 hover:bg-accent/5 px-5 flex">
                 <span className="text-[1.0rem] font-semibold flex-grow text-black/90 dark:text-light/90">
                   Professional Tools
                 </span>
-                <span onClick={() => setCollapse({...collapse, pt: !collapse.pt})}>
+                <span>
                   <ArrowDown className={`text-[1.6rem] text-black/90 dark:text-light/90 duration-200 ${collapse.pt ? "rotate-0" : "-rotate-180"}`} />
                 </span>
               </div>
@@ -188,11 +188,11 @@ export default function MobileNav() {
                 </div>
               </div>
               {/* wwsd */}
-              <div className="py-3 hover:bg-accent/5 px-5 flex">
+              <div onClick={() => setCollapse({...collapse, ss: !collapse.ss})} className="py-3 hover:bg-accent/5 px-5 flex">
                 <span className="text-[1.0rem] font-semibold flex-grow text-black/90 dark:text-light/90">
                   Settings and Support
                 </span>
-                <span onClick={() => setCollapse({...collapse, ss: !collapse.ss})}>
+                <span>
                   <ArrowDown className={`text-[1.6rem] text-black/90 dark:text-light/90 duration-200 ${collapse.ss ? "rotate-0" : "-rotate-180"}`} />
                 </span>
               </div>
@@ -248,7 +248,7 @@ export default function MobileNav() {
           </div>
         </div>
         <div className="p-3 bg-light dark:bg-black border-t border-black/5 dark:border-light/10 flex justify-around">
-          <Link href="/home">
+          <Link href="/home" aria-label="Home">
             <div className="p-2 rounded-full hover:bg-black/10 dark:hover:bg-light/10">
               {pathname === "/home" ? (
                 <HomeIcon className={defaultClass} />
@@ -257,7 +257,7 @@ export default function MobileNav() {
               )}
             </div>
           </Link>
-          <Link href="/explore">
+          <Link href="/explore" aria-label="Explore">
             <div className="p-2 rounded-full hover:bg-black/10 dark:hover:bg-light/10">
               {pathname === "/explore" ? (
                 <SearchSolid className={defaultClass} />
@@ -266,7 +266,7 @@ export default function MobileNav() {
               )}
             </div>
           </Link>
-          <Link href="/notifications">
+          <Link href="/notifications" aria-label="Notifications">
             <div className="p-2 rounded-full hover:bg-black/10 dark:hover:bg-light/10">
               {pathname === "/notifications" ? (
                 <BellFilled className={defaultClass} />
@@ -275,7 +275,7 @@ export default function MobileNav() {
               )}
             </div>
           </Link>
-          <Link href="/messages">
+          <Link href="/messages" aria-label="Messages">
             <div className="p-2 rounded-full hover:bg-black/10 dark:hover:bg-light/10">
               {pathname === "/messages" ? (
                 <MailFilled className={defaultClass} />
