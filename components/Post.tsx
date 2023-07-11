@@ -12,39 +12,39 @@ export default function Post({id}: {id:string}): JSX.Element {
       <div className="w-full flex border-b border-black/10 dark:border-light/10 relative">
         {/* Pop up */}
         <div ref={excempElem} className={`${popup ? "scale-y-100":"scale-y-0"} z-40 w-[300px] bg-light dark:bg-black shadow-black/20 dark:shadow-light/20 shadow-[0_0_4px] absolute rounded-xl right-4 top-4 flex flex-col`}>
-          <div className={`${popup ? "scale-y-100":"scale-y-0"} delay-75 duration-100 ease-out p-3 origin-top text-black/90 dark:text-light/90 flex gap-2 hover:bg-black/5 dark:hover:bg-light/5`}>
+          <div className={`${popup ? "scale-y-100":"scale-y-0"} delay-75 duration-100 ease-out p-3 origin-top text-black/90 dark:text-light/90 flex gap-2 hover:bg-black/5 dark:hover:bg-light/5 cursor-pointer`}>
             <Icons.ChatRemove className="text-xl" />
             <span className="text-sm font-semibold">Not interested in You might like</span>
           </div>
-          <div className={`${popup ? "scale-y-100":"scale-y-0"} delay-75 duration-100 ease-out p-3 origin-top text-black/90 dark:text-light/90 flex gap-2 hover:bg-black/5 dark:hover:bg-light/5`}>
+          <div className={`${popup ? "scale-y-100":"scale-y-0"} delay-75 duration-100 ease-out p-3 origin-top text-black/90 dark:text-light/90 flex gap-2 hover:bg-black/5 dark:hover:bg-light/5 cursor-pointer`}>
             <Icons.EmojiSad className="text-xl" />
             <span className="text-sm font-semibold">Not interested in this Tweet</span>
           </div>
-          <div className={`${popup ? "scale-y-100":"scale-y-0"} delay-75 duration-100 ease-out p-3 origin-top text-black/90 dark:text-light/90 flex gap-2 hover:bg-black/5 dark:hover:bg-light/5`}>
+          <div className={`${popup ? "scale-y-100":"scale-y-0"} delay-75 duration-100 ease-out p-3 origin-top text-black/90 dark:text-light/90 flex gap-2 hover:bg-black/5 dark:hover:bg-light/5 cursor-pointer`}>
             <Icons.PersonAdd className="text-xl" />
             <span className="text-sm font-semibold">Follow</span>
           </div>
-          <div className={`${popup ? "scale-y-100":"scale-y-0"} delay-75 duration-100 ease-out p-3 origin-top text-black/90 dark:text-light/90 flex gap-2 hover:bg-black/5 dark:hover:bg-light/5`}>
+          <div className={`${popup ? "scale-y-100":"scale-y-0"} delay-75 duration-100 ease-out p-3 origin-top text-black/90 dark:text-light/90 flex gap-2 hover:bg-black/5 dark:hover:bg-light/5 cursor-pointer`}>
             <Icons.PersonStar className="text-xl" />
             <span className="text-sm font-semibold">Subscribe</span>
           </div>
-          <div className={`${popup ? "scale-y-100":"scale-y-0"} delay-75 duration-100 ease-out p-3 origin-top text-black/90 dark:text-light/90 flex gap-2 hover:bg-black/5 dark:hover:bg-light/5`}>
+          <div className={`${popup ? "scale-y-100":"scale-y-0"} delay-75 duration-100 ease-out p-3 origin-top text-black/90 dark:text-light/90 flex gap-2 hover:bg-black/5 dark:hover:bg-light/5 cursor-pointer`}>
             <Icons.NotesAdd className="text-xl" />
             <span className="text-sm font-semibold">Add/remove</span>
           </div>
-          <div className={`${popup ? "scale-y-100":"scale-y-0"} delay-75 duration-100 ease-out p-3 origin-top text-black/90 dark:text-light/90 flex gap-2 hover:bg-black/5 dark:hover:bg-light/5`}>
+          <div className={`${popup ? "scale-y-100":"scale-y-0"} delay-75 duration-100 ease-out p-3 origin-top text-black/90 dark:text-light/90 flex gap-2 hover:bg-black/5 dark:hover:bg-light/5 cursor-pointer`}>
             <Icons.Mute className="text-xl" />
             <span className="text-sm font-semibold">Mute</span>
           </div>
-          <div className={`${popup ? "scale-y-100":"scale-y-0"} delay-75 duration-100 ease-out p-3 origin-top text-black/90 dark:text-light/90 flex gap-2 hover:bg-black/5 dark:hover:bg-light/5`}>
+          <div className={`${popup ? "scale-y-100":"scale-y-0"} delay-75 duration-100 ease-out p-3 origin-top text-black/90 dark:text-light/90 flex gap-2 hover:bg-black/5 dark:hover:bg-light/5 cursor-pointer`}>
             <Icons.DoNot className="text-xl" />
             <span className="text-sm font-semibold">Block</span>
           </div>
-          <div className={`${popup ? "scale-y-100":"scale-y-0"} delay-75 duration-100 ease-out p-3 origin-top text-black/90 dark:text-light/90 flex gap-2 hover:bg-black/5 dark:hover:bg-light/5`}>
+          <div className={`${popup ? "scale-y-100":"scale-y-0"} delay-75 duration-100 ease-out p-3 origin-top text-black/90 dark:text-light/90 flex gap-2 hover:bg-black/5 dark:hover:bg-light/5 cursor-pointer`}>
             <Icons.Code className="text-xl" />
             <span className="text-sm font-semibold">Embed Tweet</span>
           </div>
-          <div className={`${popup ? "scale-y-100":"scale-y-0"} delay-75 duration-100 ease-out p-3 origin-top text-black/90 dark:text-light/90 flex gap-2 hover:bg-black/5 dark:hover:bg-light/5`}>
+          <div className={`${popup ? "scale-y-100":"scale-y-0"} delay-75 duration-100 ease-out p-3 origin-top text-black/90 dark:text-light/90 flex gap-2 hover:bg-black/5 dark:hover:bg-light/5 cursor-pointer`}>
             <Icons.Flag className="text-xl" />
             <span className="text-sm font-semibold">Report Tweet</span>
           </div>

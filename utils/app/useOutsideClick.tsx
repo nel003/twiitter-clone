@@ -1,6 +1,4 @@
-import { useState, useEffect } from "react";
-import { Dispatch } from "react";
-import { SetStateAction } from "react";
+import { useState, useEffect, Dispatch, SetStateAction } from "react";
 
 export default function useOutsideClick(allowedID: string, excempElem: any): [boolean, Dispatch<SetStateAction<boolean>>]{
     const [state, setState] = useState(false);
