@@ -7,8 +7,8 @@ import uploadFile from "../../utils/api/supabaseFileUpload";
 
 const router = createRouter<NextApiRequest, NextApiResponse>();
 
-router.post((req, res) => {
-  console.log(req.headers);
+router.get((req, res) => {
+  console.log(req.headers)
   return res.status(200).json({ success: true });
 });
 

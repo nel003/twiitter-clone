@@ -13,7 +13,7 @@ export default async function sendmail(to: string, text: string): Promise<boolea
           },
         body: form
     })
-    console.log(form)
+    
     if(response.status !== 200){
         return false;
     }
