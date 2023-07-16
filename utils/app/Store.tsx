@@ -1,22 +1,14 @@
 "use client";
 import React, { createContext, useReducer } from "react";
-import { ActionType, StateType, StoreType } from "./Types"
+import { ActionType, StateType, StoreType, UserType } from "./Types"
 
 const initialState: StateType = {
-    user: {
-        id: '',
-        name: '',
-        username: '',
-        email: ''
-    },
+    user: null,
     isMHeaderOpen: false
 }
 
 function reducer(state: StateType, action: ActionType) {
     switch(action.type) {
-        case 'updateName':
-            state = {...state, user: {...state.user, name: action.payload}}
-            break;
         case 'updateMHeader':
             state = {...state, isMHeaderOpen: action.payload}
             break;
@@ -31,8 +23,8 @@ const Store = createContext<StoreType>({
     dispatch: () => null
 });
 
-export function StoreProvider({children}: {children: React.ReactNode}) {
-    const [state, dispatch] = useReducer(reducer, initialState);
+export function StoreProvider({user, children}: {user: UserType | null, children: React.ReactNode}) {
+    const [state, dispatch] = useReducer(reducer, {...initialState, user});
 
     return <>
         <Store.Provider value={{state, dispatch}}>

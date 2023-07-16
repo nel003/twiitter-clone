@@ -21,7 +21,7 @@ export default function TrendsItem({
     <>
       <div className="w-full hover:bg-black/5 dark:hover:bg-light/5 px-3 py-2 flex flex-col relative">
         {/* Pop up */}
-        <div ref={excempElem} className={`${popup ? "scale-y-100":"scale-y-0"} w-[280px] bg-light dark:bg-black shadow-black/20 dark:shadow-light/20 shadow-[0_0_4px] absolute rounded-xl right-4 top-4 flex flex-col z-50 overflow-hidden`}>
+        <div ref={excempElem} className={`${popup ? "scale-y-100":"scale-y-0"} w-[220px] xl:w-[280px] bg-light dark:bg-black shadow-black/20 dark:shadow-light/20 shadow-[0_0_4px] absolute rounded-xl right-4 top-4 flex flex-col z-50 overflow-hidden`}>
           <div className={`${popup ? "scale-y-100":"scale-y-0"} delay-75 duration-100 ease-out p-3 origin-top text-black/90 dark:text-light/90 flex gap-2 hover:bg-black/5 dark:hover:bg-light/5 cursor-pointer`}>
             <EmojiSad className="text-xl" />
             <span className="text-sm font-semibold">Not interested in this</span>

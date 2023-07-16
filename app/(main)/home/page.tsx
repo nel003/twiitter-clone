@@ -1,11 +1,12 @@
 "use client";
-import { ChangeEvent, useState, useEffect, useContext, useRef } from "react";
+import { ChangeEvent, useState, useEffect, useContext } from "react";
 import * as Icons from "../../../components/Icons";
 import TrendsItem from "../../../components/TrendsItem";
 import Post from "../../../components/Post";
 import WTF from "../../../components/WTF";
 import Image from "next/image";
 import Store from "../../../utils/app/Store";
+import { UserProtected } from "../../../utils/app/useAuth";
 
 export default function Hello() {
   const [trends, setTrends] = useState([
@@ -32,7 +33,6 @@ export default function Hello() {
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
-
     }
   }, []);
 
@@ -54,7 +54,7 @@ export default function Hello() {
   }
   
   return (
-    <>
+    <UserProtected>
       <div className="max-w-full lg:max-w-[60%] w-full">
         <div className="border-0 sm:border border-black/10 dark:border-light/10 border-y-0 flex flex-col">
           <div className={`sticky top-0 duration-300 flex flex-col bg-light/70 dark:bg-black/70 backdrop-blur-lg z-50 ${showHead ? "translate-y-0" : "-translate-y-12"} sm:-translate-y-[1px]`}>
@@ -227,6 +227,6 @@ export default function Hello() {
           </div>
         </div>
       </div>
-    </>
+    </UserProtected>
   );
 }

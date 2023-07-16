@@ -4,6 +4,7 @@ import { StoreProvider } from "../utils/app/Store";
 import { cookies } from "next/headers";
 import { Suspense } from "react";
 import Loading from "./loading";
+import User from "../utils/api/getUser";
 
 export const metadata = {
   title: {
@@ -11,10 +12,10 @@ export const metadata = {
     template: "%s / Twitter Clone",
   },
   description: "This project is owned by Nel003",
-  themeColor: "#ffffff"
+  themeColor: "#ffffff",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -22,13 +23,18 @@ export default function RootLayout({
   const theme = cookies().get("theme")?.value || "";
   metadata.themeColor = theme === "dark" ? "#0f1419" : "#ffffff";
 
+  const refreshToken = cookies().get("refreshToken")?.value!;
+  const user = (refreshToken ? await User(refreshToken) : null);
+
   return (
     <html lang="en">
-      <Suspense fallback={<Loading/>}>
-        <StoreProvider>
-          <ThemeProvider defaultTheme={theme}>{children}</ThemeProvider>
-        </StoreProvider>
-      </Suspense>
+      <StoreProvider user={user}>
+        <ThemeProvider defaultTheme={theme}>
+          <Suspense fallback={<Loading />}>
+            {children}
+          </Suspense>
+        </ThemeProvider>
+      </StoreProvider>
     </html>
   );
 }

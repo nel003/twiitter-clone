@@ -35,11 +35,9 @@ import Image from "next/image";
 export default function MobileNav() {
   const { state, dispatch } = useContext(Store);
   const pathname = usePathname();
-  const [collapse, setCollapse] = useState({
-    cs: true,
-    pt: true,
-    ss: true,
-  })
+  const [collapseCS, setCollapseCS] = useState(true);
+  const [collapsePT, setCollapsePT] = useState(true);
+  const [collapseSS, setCollapseSS] = useState(true);
   const defaultClass = "text-[1.65rem] text-black/90 dark:text-light/90";
 
   const mobileNav = useRef(null);
@@ -56,7 +54,7 @@ export default function MobileNav() {
     return () => {
       window.removeEventListener("click", handleClick);
     };
-  }, [dispatch]);
+  }, []);
 
   return (
     <>
@@ -140,32 +138,32 @@ export default function MobileNav() {
             </div>
             <div className="flex flex-col">
               {/* wwsd */}
-              <div onClick={() => setCollapse({...collapse, cs: !collapse.cs})} className="py-3 hover:bg-accent/5 px-5 flex">
+              <div onClick={() => setCollapseCS(!collapseCS)} className="py-3 hover:bg-accent/5 px-5 flex">
                 <span className="text-[1.0rem] font-semibold flex-grow text-black/90 dark:text-light/90">
                   Creator Studio
                 </span>
                 <span>
-                  <ArrowDown className={`text-[1.6rem] text-black/90 dark:text-light/90 duration-200 ${collapse.cs ? "rotate-0" : "-rotate-180"}`} />
+                  <ArrowDown className={`text-[1.6rem] text-black/90 dark:text-light/90 duration-200 ${collapseCS ? "rotate-0" : "-rotate-180"}`} />
                 </span>
               </div>
               {/* Collapse 1 */}
-              <div className={`flex-col ${collapse.cs ? "hidden":"flex"}`}>
+              <div className={`flex-col ${collapseCS ? "hidden":"flex"}`}>
                 <div className="py-3 hover:bg-accent/5 px-4 flex gap-x-2">
                   <Chart className="text-[1.3rem] mt-[0.05rem] text-black/90 dark:text-light/90" />
                   <span className="text-[1.0rem] text-black/90 dark:text-light/90">Analytics</span>
                 </div>
               </div>
               {/* wwsd */}
-              <div onClick={() => setCollapse({...collapse, pt: !collapse.pt})} className="py-3 hover:bg-accent/5 px-5 flex">
+              <div onClick={() => setCollapsePT(!collapsePT)} className="py-3 hover:bg-accent/5 px-5 flex">
                 <span className="text-[1.0rem] font-semibold flex-grow text-black/90 dark:text-light/90">
                   Professional Tools
                 </span>
                 <span>
-                  <ArrowDown className={`text-[1.6rem] text-black/90 dark:text-light/90 duration-200 ${collapse.pt ? "rotate-0" : "-rotate-180"}`} />
+                  <ArrowDown className={`text-[1.6rem] text-black/90 dark:text-light/90 duration-200 ${collapsePT ? "rotate-0" : "-rotate-180"}`} />
                 </span>
               </div>
               {/* Collapse 2 */}
-              <div className={`flex-col ${collapse.pt ? "hidden":"flex"}`}>
+              <div className={`flex-col ${collapsePT ? "hidden":"flex"}`}>
                 <div className="flex flex-col">
                   <div className="py-3 hover:bg-accent/5 px-4 flex gap-x-2">
                     <Rocket className="text-[1.3rem] mt-[0.05rem] text-black/90 dark:text-light/90" />
@@ -188,16 +186,16 @@ export default function MobileNav() {
                 </div>
               </div>
               {/* wwsd */}
-              <div onClick={() => setCollapse({...collapse, ss: !collapse.ss})} className="py-3 hover:bg-accent/5 px-5 flex">
+              <div onClick={() => setCollapseSS(!collapseSS)} className="py-3 hover:bg-accent/5 px-5 flex">
                 <span className="text-[1.0rem] font-semibold flex-grow text-black/90 dark:text-light/90">
                   Settings and Support
                 </span>
                 <span>
-                  <ArrowDown className={`text-[1.6rem] text-black/90 dark:text-light/90 duration-200 ${collapse.ss ? "rotate-0" : "-rotate-180"}`} />
+                  <ArrowDown className={`text-[1.6rem] text-black/90 dark:text-light/90 duration-200 ${collapseSS ? "rotate-0" : "-rotate-180"}`} />
                 </span>
               </div>
               {/* Collapse 3 */}
-              <div className={`flex-col ${collapse.ss ? "hidden":"flex"}`}>
+              <div className={`flex-col ${collapseSS ? "hidden":"flex"}`}>
                 <div className="flex flex-col">
                   <div className="py-3 hover:bg-accent/5 px-4 flex gap-x-2">
                     <Settings className="text-[1.3rem] mt-[0.05rem] text-black/90 dark:text-light/90" />

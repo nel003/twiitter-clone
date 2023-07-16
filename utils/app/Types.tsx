@@ -8,12 +8,17 @@ export interface ThemeType {
 export interface UserType {
     id: string;
     name: string;
+    createdAt: Date;
+    updatedAt: Date;
     username: string;
     email: string;
+    birthdate: Date;
+    picture: string;
+    accessToken: string;
 }
 
 export interface StateType {
-    user: UserType;
+    user: UserType | null;
     isMHeaderOpen?: boolean;
 }
 
