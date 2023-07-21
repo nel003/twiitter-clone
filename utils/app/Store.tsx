@@ -1,10 +1,9 @@
 "use client";
 import React, { createContext, useReducer } from "react";
-import { ActionType, StateType, StoreType, UserType } from "./Types"
+import { ActionType, StateType, StoreType } from "./Types"
 
-const initialState: StateType = {
-    user: null,
-    isMHeaderOpen: false
+const initialState = {
+    isMHeaderOpen: false,
 }
 
 function reducer(state: StateType, action: ActionType) {
@@ -23,8 +22,8 @@ const Store = createContext<StoreType>({
     dispatch: () => null
 });
 
-export function StoreProvider({user, children}: {user: UserType | null, children: React.ReactNode}) {
-    const [state, dispatch] = useReducer(reducer, {...initialState, user});
+export function StoreProvider({children}: {children: React.ReactNode}) {
+    const [state, dispatch] = useReducer(reducer, initialState);
 
     return <>
         <Store.Provider value={{state, dispatch}}>

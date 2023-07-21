@@ -1,6 +1,7 @@
 import "./globals.css";
 import { ThemeProvider } from "../utils/app/ThemeContext";
 import { StoreProvider } from "../utils/app/Store";
+import { AuthProvider } from "../utils/app/useAuth"; 
 import { cookies } from "next/headers";
 import { Suspense } from "react";
 import Loading from "./loading";
@@ -28,12 +29,14 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <StoreProvider user={user}>
+      <StoreProvider>
+        <AuthProvider initialUser={user}>
         <ThemeProvider defaultTheme={theme}>
           <Suspense fallback={<Loading />}>
             {children}
           </Suspense>
         </ThemeProvider>
+        </AuthProvider>
       </StoreProvider>
     </html>
   );

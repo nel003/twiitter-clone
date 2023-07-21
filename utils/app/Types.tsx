@@ -18,7 +18,6 @@ export interface UserType {
 }
 
 export interface StateType {
-    user: UserType | null;
     isMHeaderOpen?: boolean;
 }
 
