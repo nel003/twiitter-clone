@@ -10,7 +10,7 @@ export default function Home() {
       <UserRedirect>
         <div className="flex w-screen lg:h-screen flex-col-reverse lg:flex-row">
           <div className="lg:w-[55%] relative h-full min-h-[15rem] lg:min-h-full">
-            <Image src="/banner.png" alt="Banner" fill style={{objectFit: "cover"}}/>
+            <Image priority src="/banner.png" alt="Banner" fill style={{objectFit: "cover"}} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"/>
             <div className="absolute top-0 left-0 grid place-items-center h-full w-full">
               <Twitter className="text-[15rem] sm:text-[22rem] text-light" />
             </div>

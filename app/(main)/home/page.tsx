@@ -21,30 +21,25 @@ export default function Hello() {
   ]);
   const [tweet, setTweet] = useState("");
   const [isHidden, setIsHidden] = useState(true);
-  const [lastScroll, setLastScroll] = useState(0);
-  const [scroll, setScroll] = useState(0);
   const [showHead, setShowHead] = useState(true);
   const {dispatch} = useContext(Store);
 
   useEffect(() => {
+    let lastScroll = 0;
     function handleScroll() {
-      setScroll(window.scrollY);
+      const SY = window.scrollY
+      if(lastScroll < SY) {
+        setShowHead(false)
+      } else {
+        setShowHead(true)
+      }
+      lastScroll = SY;
     }
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     }
   }, []);
-
-  useEffect(() => {
-    if(lastScroll < scroll) {
-      setShowHead(false)
-    } 
-    if(lastScroll > scroll) {
-      setShowHead(true)
-    } 
-    setLastScroll(window.scrollY);
-  }, [scroll, lastScroll]);
 
   function handleTweetInput(e: ChangeEvent<HTMLTextAreaElement>) {
     const target = e.target;

@@ -87,15 +87,17 @@ export default function MobileNav() {
           <div className="py-1 flex flex-col pb-8 overflow-y-scroll">
             <div className="flex h-12 px-4 mt-2 flex-col gap-1">
               <div className="flex">
-                <div className="h-full flex-grow pt-1">
-                  <Image
-                    height={40}
-                    width={40}
-                    src="/images/nel.png"
+                <div className="h-10 w-10 pt-1 rounded-full overflow-hidden relative">
+                  { user ? <Image
+                    fill
+                    style={{objectFit: "cover"}}
+                    src={`${user?.picture}`}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     alt="Nel"
                     loading="lazy"
-                  />
+                  /> : "" }
                 </div>
+                <span className="flex-grow"></span>
                 <span className="h-8 mt-1 w-8 border border-black/10 dark:border-light/10 hover:border-transparent grid place-items-center rounded-full hover:bg-black/10 dark:hover:bg-light/10">
                   <Add className="text-xl text-black/90 dark:text-light/90" />
                 </span>

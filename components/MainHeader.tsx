@@ -4,9 +4,12 @@ import Link from "next/link";
 import Item from "./Item";
 import * as Icons from "./Icons";
 import Image from "next/image";
+import { useContext } from "react";
+import { AuthContext } from "../utils/app/useAuth";
 
 export default function Nav() {
   const pathname = usePathname();
+  const { user } = useContext(AuthContext);
 
   return (
     <>
@@ -119,20 +122,21 @@ export default function Nav() {
         </button>
         <div className="grow"></div>
         <div className="mb-4 flex hover:bg-black/5 dark:hover:bg-light/5 hover:rounded-full cursor-pointer max-w-[90%] w-14 lg:w-auto h-14">
-          <div className="flex m-2 rounded-full max-w-[2.5rem] min-w-[2.5rem] bg-black overflow-hidden">
-            <Image
-              height={40}
-              width={40}
-              src="/images/nel.png"
-              alt="Nel"
-              loading="lazy"
-            />
+          <div className="flex m-2 rounded-full max-w-[2.5rem] min-w-[2.5rem] bg-black relative overflow-hidden">
+          {user ? <Image
+            fill
+            style={{objectFit: "cover"}}
+            src={`${user?.picture}`}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            alt="Nel"
+            loading="lazy"
+          /> : ""}
           </div>
           <div className="flex-[8] flex-col px-2 hidden lg:flex">
             <span className="font-bold mt-2 overflow-hidden max-h-8 whitespace-nowrap text-black/90 dark:text-light/90">
-              Nel Lopena
+              {user?.name}
             </span>
-            <span className="text-black/70 dark:text-light/70 leading-3">@nel003</span>
+            <span className="text-black/70 dark:text-light/70 leading-3">{user?.username}</span>
           </div>
           <div className="w-12 h-full place-items-center hidden lg:grid">
             <Icons.MoreFlat className="text-2xl text-black/70 dark:text-light/70" />

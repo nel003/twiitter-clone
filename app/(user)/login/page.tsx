@@ -9,8 +9,6 @@ import { useContext } from "react";
 import { AuthContext } from "../../../utils/app/useAuth";
 
 export default function Login() {
-    const inputLabel = useRef<HTMLLabelElement>(null);
-    const passwordLabel = useRef<HTMLLabelElement>(null);
     const [userInput, setUserInput] = useState("");     
     const [passwordInput, setPasswordInput] = useState("");     
     const [pwdPage, setPwdPage] = useState(false);     
@@ -18,35 +16,6 @@ export default function Login() {
     const { dispatch } = useContext(AuthContext);
     const [error, setError] = useState("");
     const { push } = useRouter();
-
-    function handleOnFocus() {
-        if (userInput === "") {
-            inputLabel.current?.classList.remove("top-[20%]");
-            inputLabel.current?.classList.remove("text-lg");
-            inputLabel.current?.classList.add("top-0");
-            inputLabel.current?.classList.add("text-sm");
-        }
-        if (passwordInput === "") {
-            passwordLabel.current?.classList.remove("top-[20%]");
-            passwordLabel.current?.classList.remove("text-lg");
-            passwordLabel.current?.classList.add("top-0");
-            passwordLabel.current?.classList.add("text-sm");
-        }
-    }
-    function handleOnBlur() {
-        if (userInput === "") {
-            inputLabel.current?.classList.add("top-[20%]");
-            inputLabel.current?.classList.add("text-lg");
-            inputLabel.current?.classList.remove("top-0");
-            inputLabel.current?.classList.remove("text-sm");
-        }
-        if (passwordInput === "") {
-            passwordLabel.current?.classList.add("top-[20%]");
-            passwordLabel.current?.classList.add("text-lg");
-            passwordLabel.current?.classList.remove("top-0");
-            passwordLabel.current?.classList.remove("text-sm");
-        }
-    }
 
     async function submitForm(e: React.MouseEvent) {
         const target = e.target as HTMLButtonElement;
@@ -115,9 +84,9 @@ export default function Login() {
                                 <span className="absolute h-[0.5px] w-full bg block bg-black/30 dark:bg-light/30 top-[50%]"></span>
                                 <p className="dark:text-light text-black px-3 bg-[#fff] dark:bg-[#000] text-sm relative">or</p>
                             </div>
-                            <div className="w-full border rounded-md border-black/30 dark:border-light/30 text-black/30 dark:text-light/30 p-2 relative focus-within:border-2 focus-within:dark:border-accent focus-within:border-accent focus-within:text-accent focus-within:dark:text-accent">
-                                <label ref={inputLabel} className="text-inherit w-full text-lg absolute top-[20%] duration-100" htmlFor="userInput">Email or username</label>
-                                <input onFocus={() => handleOnFocus()} onBlur={() => handleOnBlur()} onChange={(e) => setUserInput(e.target.value)} value={userInput} className="dark:text-light text-black bg-transparent outline-none w-full mt-3" type="text" id="userInput" />
+                            <div className="w-full border rounded-md border-black/30 dark:border-light/30 text-black/30 dark:text-light/30 p-2 relative focus-within:border-2 group focus-within:dark:border-accent focus-within:border-accent focus-within:text-accent focus-within:dark:text-accent">
+                                <label className={`text-inherit w-full absolute duration-100 group-focus-within:top-0 group-focus-within:text-sm box-content ${userInput !== "" ? "text-sm top-0":"text-lg top-[20%]"}`} htmlFor="userInput">Email or username</label>
+                                <input onChange={(e) => setUserInput(e.target.value)} value={userInput} className="dark:text-light text-black bg-transparent outline-none w-full mt-3" type="text" id="userInput" />
                             </div>
                             <button onClick={() => setPwdPage(true)} disabled={userInput === ""} className="mt-6 mb-3 bg-black w-full dark:bg-light dark:text-black text-light/80 py-2 text-sm rounded-full flex justify-center font-bold">
                                 Next
@@ -128,14 +97,14 @@ export default function Login() {
                         </div>
                         <div className={`${pwdPage ? "block":"hidden"}`}>
                             <h1 className="text-3xl dark:text-light text-black font-bold py-6">Enter your password</h1>
-                            <div className="flex flex-col dark:text-light/30 text-black/60 bg-black/30 dark:bg-light-70 px-3 py-1 rounded-lg mb-4">
+                            <div onClick={() => setPwdPage(false)} className="flex flex-col dark:text-light/30 text-black/60 bg-black/30 dark:bg-light-70 px-3 py-2 rounded-lg mb-4">
                                 <span className="text-sm">{userInput.includes("@") && !userInput.startsWith("@") ? "Email":"Username"}</span>
                                 <span>{userInput.startsWith("@") ? userInput.replace("@", ""):userInput}</span>
                             </div>
-                            <div className="w-full border rounded-md border-black/30 dark:border-light/30 text-black/30 dark:text-light/30 p-2 relative focus-within:border-2 focus-within:dark:border-accent focus-within:border-accent focus-within:text-accent focus-within:dark:text-accent">
-                                <label ref={passwordLabel} className="text-inherit w-full text-lg absolute top-[20%] duration-100" htmlFor="passwordInput">Password</label>
+                            <div className="w-full border rounded-md border-black/30 dark:border-light/30 text-black/30 dark:text-light/30 p-2 relative focus-within:border-2 focus-within:dark:border-accent focus-within:border-accent focus-within:text-accent focus-within:dark:text-accent group">
+                                <label className={`text-inherit w-full absolute duration-100 group-focus-within:top-0 group-focus-within:text-sm box-content ${passwordInput !== "" ? "text-sm top-0":"text-lg top-[20%]"}`} htmlFor="passwordInput">Password</label>
                                 <div className="flex">
-                                    <input onFocus={() => handleOnFocus()} onBlur={() => handleOnBlur()} onChange={(e) => setPasswordInput(e.target.value)} value={passwordInput} className="dark:text-light text-black bg-transparent outline-none w-full mt-3" type={showPassword ? "text":"password"} id="passwordInput" />
+                                    <input onChange={(e) => setPasswordInput(e.target.value)} value={passwordInput} className="dark:text-light text-black bg-transparent outline-none w-full mt-3" type={showPassword ? "text":"password"} id="passwordInput" />
                                     <span onClick={() => setShowPassword(!showPassword)} className="block w-6 h-6 mt-4">
                                         <Eye className={`text-2xl text-black/90 dark:text-light/90 ${showPassword ? "hidden":"block"}`} />
                                         <EyeOff className={`text-2xl text-black/90 dark:text-light/90 ${showPassword ? "block":"hidden"}`} />
@@ -152,9 +121,9 @@ export default function Login() {
                         </span>
                     </div>
                 </div>
-            </div>
-            <div className={`px-6 py-3 bg-accent absolute bottom-6 text-light rounded-md shadow-lg ${error === "" ? "hidden":"block"}`}>
-                {error}
+                <div className={`px-6 py-3 bg-accent absolute left-1/2 -translate-x-1/2 bottom-16 sm:-bottom-20 text-light rounded-md shadow-lg ${error === "" ? "hidden":"block"}`}>
+                    {error}
+                </div>
             </div>
         </div>
     </> 
