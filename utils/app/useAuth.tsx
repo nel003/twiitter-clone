@@ -15,7 +15,7 @@ export const AuthContext = createContext<{
 
 function reducer(user: UserType | null, action: ActionType) {
   switch(action.type) {
-    case "updateUser": 
+    case "UPDATE_USER": 
       user = action.payload;
       break;
     default:

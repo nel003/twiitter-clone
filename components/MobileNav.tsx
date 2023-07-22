@@ -31,9 +31,11 @@ import {
 import { useContext, useEffect, useRef, useState } from "react";
 import Store from "../utils/app/Store";
 import Image from "next/image";
+import { AuthContext } from "../utils/app/useAuth";
 
 export default function MobileNav() {
   const { state, dispatch } = useContext(Store);
+  const { user } = useContext(AuthContext);
   const pathname = usePathname();
   const [collapseCS, setCollapseCS] = useState(true);
   const [collapsePT, setCollapsePT] = useState(true);
@@ -100,9 +102,9 @@ export default function MobileNav() {
               </div>
             </div>
             <div className="flex flex-col px-4">
-              <span className="font-bold text-lg text-black dark:text-light/90">nel lopens</span>
+              <span className="font-bold text-lg text-black dark:text-light/90">{user?.name}</span>
               <span className="leading-[15px] text-black/70 dark:text-light/70">
-                @nel003
+                {user?.username}
               </span>
             </div>
             <div className="flex gap-x-5 my-4 px-4">
