@@ -3,6 +3,7 @@ import { Apple, Close, Eye, EyeOff, GoogleColored, Twitter } from "../../../comp
 import { useRef, useState } from "react"
 import Home from "../../page";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import { useContext } from "react";
 import { AuthContext } from "../../../utils/app/useAuth";
@@ -16,6 +17,7 @@ export default function Login() {
     const [showPassword, setShowPassword] = useState(false);     
     const { dispatch } = useContext(AuthContext);
     const [error, setError] = useState("");
+    const { push } = useRouter();
 
     function handleOnFocus() {
         if (userInput === "") {
@@ -68,6 +70,7 @@ export default function Login() {
                     expires: 7,
                 });
                 dispatch({type: "UPDATE_USER", payload: user});
+                push("/home");
             } else {
                 throw res;
             }
@@ -89,14 +92,14 @@ export default function Login() {
     return <>
         <Home />
         <div className="w-screen h-screen bg-black/20 grid place-items-center absolute top-0 left-0">
-            <div className="h-full w-full fixed sm:block sm:h-[40.5rem] sm:w-[37.5rem] bg-[#fff] dark:bg-[#000] rounded-none sm:rounded-2xl">
+            <div className="h-full w-full fixed top-0 sm:block sm:top-auto sm:h-[40.5rem] sm:w-[37.5rem] bg-[#fff] dark:bg-[#000] rounded-none sm:rounded-2xl">
                 <div className="w-full flex p-4">
                     <Link href="/">
                         <Close className="text-xl dark:text-light text-black" />
                     </Link>
                     <Twitter className="text-4xl dark:text-light text-black flex-grow pr-4" />
                 </div>
-                <div className="w-full h-[90%] sm:h-[75%] flex justify-center items-center">
+                <div className="w-full h-[70%] sm:h-[75%] flex justify-center items-center">
                     <div className={` ${pwdPage ? 'w-[80%] sm:w-[70%]':'w-[75%] sm:w-[50%]'}`}>
                         <div className={` ${pwdPage ? "hidden":"block"}`}>
                             <h1 className="text-3xl dark:text-light text-black font-bold py-4">Sign in to Twitter</h1>
